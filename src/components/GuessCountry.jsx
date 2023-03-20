@@ -8,7 +8,13 @@ export default function GuessCountry() {
   const [guess, setGuess] = useState("");
   const [message, setMessage] = useState("");
   const checkRandomCountry = () => {
-    if (countries?.map((country) => country.capital).includes(guess)) {
+    if (
+      countries
+        ?.map((country) => country.capital)
+        .join("")
+        .toLowerCase()
+        .includes(guess.toLowerCase())
+    ) {
       setMessage("Your Answer is Correct!");
     } else {
       setMessage(
@@ -29,7 +35,6 @@ export default function GuessCountry() {
 
       <InputField
         setGuess={setGuess}
-        setMessage={setMessage}
         placeholder={"Type a City Name to Guess.."}
       />
       <div className="btn-group">
