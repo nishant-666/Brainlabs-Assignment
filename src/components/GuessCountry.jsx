@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { CountryList } from "../store/countriesStore";
 import InputField from "./common/InputField";
 import Button from "./common/Button";
