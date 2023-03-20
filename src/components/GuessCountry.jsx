@@ -17,21 +17,29 @@ export default function GuessCountry() {
     }
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="guess-country">
       <h1>Capital Guessing Game!</h1>
       <h2>What is the capital of {randomCountry.name}?</h2>
       {message ? <h3>{message}</h3> : <></>}
+
       <InputField
         setGuess={setGuess}
+        setMessage={setMessage}
         placeholder={"Type a City Name to Guess.."}
       />
-
-      <Button
-        disabled={!guess.length > 0 ? true : false}
-        onClick={checkRandomCountry}
-        title="Guess!"
-      />
+      <div className="btn-group">
+        <Button
+          disabled={!guess.length > 0 ? true : false}
+          onClick={checkRandomCountry}
+          title="Guess!"
+        />
+        <Button onClick={refreshPage} title="Refresh" />
+      </div>
     </div>
   );
 }
