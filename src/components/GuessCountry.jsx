@@ -8,13 +8,7 @@ export default function GuessCountry() {
   const [guess, setGuess] = useState("");
   const [message, setMessage] = useState("");
   const checkRandomCountry = () => {
-    if (
-      countries
-        ?.map((country) => country.capital)
-        .join("")
-        .toLowerCase()
-        .includes(guess.toLowerCase())
-    ) {
+    if (randomCountry.capital.toLowerCase() === guess.toLowerCase()) {
       setMessage("Your Answer is Correct!");
     } else {
       setMessage(
@@ -26,7 +20,7 @@ export default function GuessCountry() {
   const refreshPage = () => {
     window.location.reload();
   };
-
+  console.log(randomCountry);
   return (
     <div className="guess-country">
       <h1>Capital Guessing Game!</h1>
