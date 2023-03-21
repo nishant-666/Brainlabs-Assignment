@@ -6,19 +6,17 @@ import GuessCountry from "./components/GuessCountry";
 import "./App.css";
 
 function App() {
-  const [countries, setCountries] = useState([]);
   const [randomCountry, setRandomCountry] = useState("");
 
   useEffect(() => {
     return async () => {
       let res = await getCountries();
-      setCountries(res);
       setRandomCountry(res[Math.floor(Math.random() * res.length)]);
     };
   }, []);
 
   return (
-    <CountryList.Provider value={{ countries, randomCountry }}>
+    <CountryList.Provider value={{ randomCountry }}>
       <GuessCountry />
     </CountryList.Provider>
   );

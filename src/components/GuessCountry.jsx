@@ -4,7 +4,7 @@ import InputField from "./common/InputField";
 import Button from "./common/Button";
 
 export default function GuessCountry() {
-  let { countries, randomCountry } = useContext(CountryList);
+  let { randomCountry } = useContext(CountryList);
   const [guess, setGuess] = useState("");
   const [message, setMessage] = useState("");
   const checkRandomCountry = () => {
@@ -20,7 +20,7 @@ export default function GuessCountry() {
   const refreshPage = () => {
     window.location.reload();
   };
-  console.log(randomCountry);
+
   return (
     <div className="guess-country">
       <h1>Capital Guessing Game!</h1>
